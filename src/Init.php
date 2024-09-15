@@ -2,7 +2,8 @@
 
 $directories = [
     'src',
-    'server'
+    'server',
+    '.phframework'
 ];
 
 $files = [
@@ -10,6 +11,20 @@ $files = [
     'php.ini' => "; php.ini\n",
     '.gitignore' => "*.log\n*.tmp\nvendor/\n",
     'server/Server.php' => "<?php\n\n// Server.php\n"
+    '.phframework/Serve.php' => ```
+<?php
+$request = $_SERVER['REQUEST_URI'];
+
+if ($request == '/' || $request == '/index') {
+    echo "Welcome to the index page!";
+} elseif ($request == '/about') {
+    echo "This is the about page.";
+} else {
+    http_response_code(404);
+    echo "Page not found.";
+}
+?>
+    ```
 ];
 
 // Create directories
